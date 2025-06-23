@@ -1,4 +1,3 @@
-// Ensure this script runs after DOM and Firebase SDK have loaded
 document.addEventListener("DOMContentLoaded", () => {
 
   // Firebase auth check
