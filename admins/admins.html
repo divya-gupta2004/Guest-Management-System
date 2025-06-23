@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="admins.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBJYYD_bVK0MpLMPavJPzt2vcQWM1EW0Ko",
+    authDomain: "guest-management-system-b4205.firebaseapp.com",
+    projectId: "guest-management-system-b4205",
+    storageBucket: "guest-management-system-b4205.appspot.com",
+    messagingSenderId: "173286413830",
+    appId: "1:173286413830:web:9f511ba84b7a73fa23d587" 
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+  <div id="tsparticles"></div>
+
+  <div class="container">
+    <nav>
+      <h1>Admin Manager</h1>
+      <a href="../home/home.html">🏠 Home</a>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+
+    <main>
+      <div class="top-bar">
+        <h2>Admin Accounts</h2>
+        <button onclick="logout()">Logout</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="adminTable"></tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="admins.js"></script>
+
+  <script>
+    tsParticles.load("tsparticles", {
+      background: { color: "#1e1e2f" },
+      particles: {
+        number: { value: 60 },
+        color: { value: "#fff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4 },
+        size: { value: 3 },
+        move: { enable: true, speed: 1.2 },
+        links: { enable: true, distance: 120, color: "#fff", opacity: 0.2, width: 1 }
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+  
+</body>
+</html>

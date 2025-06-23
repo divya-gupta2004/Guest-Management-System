@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guest Manager — Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="../shared/transition.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBJYYD_bVK0MpLMPavJPzt2vcQWM1EW0Ko",
+    authDomain: "guest-management-system-b4205.firebaseapp.com",
+    projectId: "guest-management-system-b4205",
+    storageBucket: "guest-management-system-b4205.appspot.com",
+    messagingSenderId: "173286413830",
+    appId: "1:173286413830:web:9f511ba84b7a73fa23d587" // Replace with actual appId if needed
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+  
+<div id="tsparticles"></div>
+
+<div class="container">
+  <nav>
+    <h1>Guest Manager</h1>
+    <a href="home.html">🏠 Home</a>
+    <!-- <a href="guests.html">👤 Guests</a> -->
+    <a href="../guests/guests.html">👤 Guests</a>
+
+    <button onclick="logout()">🚪 Logout</button>
+  </nav>
+
+  <main>
+    <div class="card">
+      <h2>Welcome, <span id="username">Admin</span>!</h2>
+      <p class="tagline">We’re glad to have you here. Manage your guests efficiently and effortlessly!</p>
+
+      <div class="stats">
+        <div class="stat-box"><h3 id="totalGuests">0</h3><p>Total Guests</p></div>
+        <div class="stat-box"><h3 id="adminCount">0</h3><p>Total Admins</p></div>
+        <div class="stat-box"><h3 id="guestCount">0</h3><p>Total Guests Users</p></div>
+      </div>
+
+      <!-- <button onclick="location.href='guests.html'">Manage Guests</button>
+      <button onclick="location.href='../admins/admins.html'">Manage Admins</button> -->
+
+      <button onclick="location.href='../guests/guests.html'">Manage Guests</button>
+      <button onclick="location.href='../admins/admins.html'">Manage Admins</button>
+      <button onclick="logout()">Logout</button>
+
+
+    </div>
+  </main>
+</div>
+
+<script src="home.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+</body>
+</html>

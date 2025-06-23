@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guest Manager — Guests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="guests.css" />
+  <link rel="stylesheet" href="../shared/transition.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBJYYD_bVK0MpLMPavJPzt2vcQWM1EW0Ko",
+    authDomain: "guest-management-system-b4205.firebaseapp.com",
+    projectId: "guest-management-system-b4205",
+    storageBucket: "guest-management-system-b4205.appspot.com",
+    messagingSenderId: "173286413830",
+    appId: "1:173286413830:web:9f511ba84b7a73fa23d587" 
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+
+<div id="tsparticles"></div>
+
+<div class="container">
+  <nav>
+    <h1>Guest Manager</h1>
+    <a href="../home/home.html">🏠 Home</a>
+    <a href="../guests/guests.html">👤 Guests</a>
+    <button onclick="logout()">🚪 Logout</button>
+  </nav>
+
+  <main>
+    <div class="top-bar">
+      <h2>Guest Management</h2>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="form-inline">
+      <input type="text" id="guestName" placeholder="Guest Name" />
+      <input type="text" id="guestLocation" placeholder="Location" />
+      <button id="addGuestBtn">Add Guest</button>
+
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="guestTable"></tbody>
+    </table>
+  </main>
+</div>
+
+<script src="guests.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+</body>
+</html>

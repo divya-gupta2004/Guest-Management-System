@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guest Manager — Login/Register</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../shared/transition.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="..." crossorigin="anonymous" />
+
+
+<!-- Firebase App (Core SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+
+<!-- Firebase Authentication SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBJYYD_bVK0MpLMPavJPzt2vcQWM1EW0Ko",
+    authDomain: "guest-management-system-b4205.firebaseapp.com",
+    projectId: "guest-management-system-b4205",
+    storageBucket: "guest-management-system-b4205.appspot.com",
+    messagingSenderId: "173286413830",
+    appId: "1:173286413830:web:9f511ba84b7a73fa23d587" 
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Firebase Auth Reference
+  const auth = firebase.auth();
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  
+</head>
+<body>
+
+<div id="tsparticles"></div>
+
+<div class="container">
+  <div class="flip-card" id="card">
+
+    <!-- Login -->
+    <div class="card-side front" id="loginCard">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group password-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required />
+          <i id="toggleLogin" class="fa fa-eye password-toggle" title="Show/Hide password"></i>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="rememberMe" />
+            <label for="rememberMe">Remember Me</label>
+        </div>
+
+        <div class="toggle-text" onclick="forgotPassword()">Forgot Password?</div>
+
+        <button type="submit" id="loginBtn">Log In</button>
+      </form>
+      <div class="toggle-text" onclick="flipCard()">Don't have an account? Register</div>
+    </div>
+
+    <!-- Register -->
+    <div class="card-side back" id="registerCard">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="regName" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="regEmail" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group password-group">
+          <label>Password</label>
+          <input type="password" id="regPassword" placeholder="••••••••" required />
+          <i id="toggleReg" class="fa fa-eye password-toggle" title="Show/Hide password"></i>
+        </div>
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="isAdmin" />
+          <label for="isAdmin">Register as Admin</label>
+        </div>
+        <button type="submit" id="registerBtn">Register</button>
+      </form>
+      <div class="toggle-text" onclick="flipCard()">Already have an account? Login</div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+</body>
+</html>
