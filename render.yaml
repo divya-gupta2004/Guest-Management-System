@@ -1,0 +1,8 @@
+services:
+  - type: static
+    name: guest-management-system
+    staticPublishPath: index
+    buildCommand: ""
+    envVars:
+      - key: NODE_VERSION
+        value: 18
